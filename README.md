@@ -1,8 +1,11 @@
-# @batpb/genart template
+# 365
 
-Copyright (C) 2023-2024 brittni and the polar bear LLC.
+Copyright (C) 2024 brittni and the polar bear LLC.
 
-A template for new generative art projects using the [@batpb/genart](https://www.npmjs.com/package/@batpb/genart) library.
+[azurepolarbear's](https://github.com/azurepolarbear) 365 algorithmic art project.
+
+This project uses the brittni and the polar bear generative art
+library: [@batpb/genart](https://www.npmjs.com/package/@batpb/genart).
 
 ----
 
@@ -12,44 +15,35 @@ A template for new generative art projects using the [@batpb/genart](https://www
 
 ## actions
 
-[![CodeQL](https://github.com/brittni-and-the-polar-bear/genart-template/actions/workflows/codeql.yml/badge.svg)](https://github.com/brittni-and-the-polar-bear/genart-template/actions/workflows/codeql.yml)
-[![Node.js Build](https://github.com/brittni-and-the-polar-bear/genart-template/actions/workflows/node-js.yml/badge.svg)](https://github.com/brittni-and-the-polar-bear/genart-template/actions/workflows/node-js.yml)
+[![CodeQL](https://github.com/azurepolarbear/365/actions/workflows/codeql.yml/badge.svg)](https://github.com/azurepolarbear/365/actions/workflows/codeql.yml)
+[![Node.js Build](https://github.com/azurepolarbear/365/actions/workflows/node-js.yml/badge.svg)](https://github.com/azurepolarbear/365/actions/workflows/node-js.yml)
 
 ----
 
 ## project releases
 
-![GitHub Release Date - Published_At](https://img.shields.io/github/release-date/brittni-and-the-polar-bear/genart-template)
-![GitHub License](https://img.shields.io/github/license/brittni-and-the-polar-bear/genart-template)
+![GitHub Release Date - Published_At](https://img.shields.io/github/release-date/azurepolarbear/365)
+![GitHub License](https://img.shields.io/github/license/azurepolarbear/365)
 
 ----
 
 ## github
 
-![GitHub followers](https://img.shields.io/github/followers/brittni-and-the-polar-bear)
-![GitHub Repo stars](https://img.shields.io/github/stars/brittni-and-the-polar-bear/genart-template)
-![GitHub watchers](https://img.shields.io/github/watchers/brittni-and-the-polar-bear/genart-template)
+![GitHub followers](https://img.shields.io/github/followers/azurepolarbear)
+![GitHub Repo stars](https://img.shields.io/github/stars/azurepolarbear/365)
+![GitHub watchers](https://img.shields.io/github/watchers/azurepolarbear/365)
 
-![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/brittni-and-the-polar-bear/genart-template)
-![GitHub Issues or Pull Requests](https://img.shields.io/github/issues-pr/brittni-and-the-polar-bear/genart-template)
+![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/azurepolarbear/365)
+![GitHub Issues or Pull Requests](https://img.shields.io/github/issues-pr/azurepolarbear/365)
 
-![GitHub issues by-label (bug)](https://img.shields.io/github/issues/brittni-and-the-polar-bear/genart-template/bug?color=red)
-![GitHub issues by-label (security)](https://img.shields.io/github/issues/brittni-and-the-polar-bear/genart-template/security?color=red)
+![GitHub issues by-label (bug)](https://img.shields.io/github/issues/azurepolarbear/365/bug?color=red)
+![GitHub issues by-label (security)](https://img.shields.io/github/issues/azurepolarbear/365/security?color=red)
 
-![GitHub commits since latest release](https://img.shields.io/github/commits-since/brittni-and-the-polar-bear/genart-template/latest)
+![GitHub commits since latest release](https://img.shields.io/github/commits-since/azurepolarbear/365/latest)
 
-![GitHub contributors](https://img.shields.io/github/contributors-anon/brittni-and-the-polar-bear/genart-template)
+![GitHub contributors](https://img.shields.io/github/contributors-anon/azurepolarbear/365)
 
-![GitHub repo size](https://img.shields.io/github/repo-size/brittni-and-the-polar-bear/genart-template)
-
-----
-
-# attributions
-
-The favicon.ico of this template was designed by
-[Freepik from Flaticon](https://www.flaticon.com/free-icons/art).
-You can find the original icon on
-[flaticon.com](https://www.flaticon.com/free-icon/art_1756752?term=art&page=1&position=38&origin=search&related_id=1756752).
+![GitHub repo size](https://img.shields.io/github/repo-size/azurepolarbear/365)
 
 ----
 
