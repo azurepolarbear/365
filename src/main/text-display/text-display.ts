@@ -1,6 +1,6 @@
 import P5Lib from 'p5';
 
-import { CanvasContext, CanvasRedrawListener, Coordinate, CoordinateMode, P5Context } from '@batpb/genart';
+import { CanvasContext, CanvasRedrawListener, Color, Coordinate, CoordinateMode, P5Context } from '@batpb/genart';
 
 export interface TextDisplayConfig {
     text: string;
@@ -10,6 +10,7 @@ export interface TextDisplayConfig {
     coordinatePosition: P5Lib.Vector;
     coordinateMode: CoordinateMode;
     maxWidthRatio: number;
+    color: Color;
 }
 
 export class TextDisplay implements CanvasRedrawListener {
@@ -20,6 +21,7 @@ export class TextDisplay implements CanvasRedrawListener {
     #xAlign: P5Lib.HORIZ_ALIGN;
     #yAlign: P5Lib.VERT_ALIGN;
     #maxWidthRatio: number;
+    #textColor: Color;
 
     public constructor(config: TextDisplayConfig) {
         this.#COORDINATE = new Coordinate();
@@ -29,11 +31,12 @@ export class TextDisplay implements CanvasRedrawListener {
         this.#xAlign = config.xAlign;
         this.#yAlign = config.yAlign;
         this.#maxWidthRatio = config.maxWidthRatio;
+        this.#textColor = config.color;
     }
 
     public draw(): void {
         const p5: P5Lib = P5Context.p5;
-        p5.fill(0);
+        p5.fill(this.#textColor.color);
         p5.textWrap(p5.WORD);
         p5.textAlign(this.#xAlign, this.#yAlign);
         p5.textSize(CanvasContext.defaultStroke * this.#textSizeMultiplier);
