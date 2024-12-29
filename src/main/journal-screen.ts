@@ -8,6 +8,9 @@ export class JournalScreen extends CanvasScreen {
     readonly #DATE_STRING: string;
     readonly #DATE_DISPLAY: TextDisplay;
     readonly #NAME_DISPLAY: TextDisplay;
+    
+    // for debugging
+    readonly #SEED_DISPLAY: TextDisplay;
 
     readonly #BACKGROUND_COLOR: Color;
     readonly #TEXT_COLOR: Color;
@@ -17,6 +20,8 @@ export class JournalScreen extends CanvasScreen {
     // #journalEntry: string = '';
     #username: string = '';
     // #dateGraph: unknown = null;
+
+    #seedVerification: number;
 
     public constructor(username: string) {
         super('journal-screen');
@@ -63,6 +68,19 @@ export class JournalScreen extends CanvasScreen {
 
         console.log(`background color: ${this.#BACKGROUND_COLOR.name}`);
         console.log(`text color: ${this.#TEXT_COLOR.name}`);
+
+        this.#seedVerification = Random.randomInt(0, 1_000_000);
+        const seedDisplayConfig: TextDisplayConfig = {
+            text: `hash check: ${this.#seedVerification}`,
+            textSizeMultiplier: 10,
+            xAlign: p5.LEFT,
+            yAlign: p5.TOP,
+            coordinatePosition: p5.createVector(0.1, 0.95),
+            coordinateMode: CoordinateMode.RATIO,
+            maxWidthRatio: 0.5,
+            color: this.#TEXT_COLOR
+        };
+        this.#SEED_DISPLAY = new TextDisplay(seedDisplayConfig);
     }
 
     public draw(): void {
@@ -70,6 +88,7 @@ export class JournalScreen extends CanvasScreen {
         p5.background(this.#BACKGROUND_COLOR.color);
         this.#DATE_DISPLAY.draw();
         this.#NAME_DISPLAY.draw();
+        this.#SEED_DISPLAY.draw();
     }
 
     public keyPressed(): void {
