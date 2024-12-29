@@ -25,18 +25,22 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackInjector = require('html-webpack-injector');
 
 module.exports = {
     entry: {
-        sketch: {
-            import: './src/main/sketch.ts',
-            dependOn: ['p5', 'genart']
+        fxhash_head: {
+            import: './src/fxhash/fxhash.min.js',
         },
+        p5: 'p5',
         genart: {
             import: '@batpb/genart',
             dependOn: ['p5']
         },
-        p5: 'p5'
+        sketch: {
+            import: './src/main/sketch.ts',
+            dependOn: ['p5', 'genart']
+        }
     },
     devtool: 'inline-source-map',
     module: {
@@ -61,7 +65,8 @@ module.exports = {
             inject: 'body',
             favicon: './assets/icon/favicon.ico'
         }),
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin(),
+        new HtmlWebpackInjector()
     ],
     optimization: {
         // concatenateModules: true,
