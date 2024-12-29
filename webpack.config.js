@@ -57,7 +57,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: '@batpb/genart template',
+            title: '365',
             inject: 'body',
             favicon: './assets/icon/favicon.ico'
         }),
