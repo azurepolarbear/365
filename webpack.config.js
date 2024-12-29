@@ -30,7 +30,7 @@ const HtmlWebpackInjector = require('html-webpack-injector');
 module.exports = {
     entry: {
         fxhash_head: {
-            import: './src/fxhash/fxhash.min.js',
+            import: './src/main/fxhash/fxhash.min.js',
         },
         p5: 'p5',
         genart: {

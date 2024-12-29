@@ -39,6 +39,12 @@ import { JournalScreen } from './journal-screen';
 // TODO   - date font
 // TODO   - name font
 
+// declare const window: {
+//     $fx: {
+//         rand: () => number;
+//       }
+// } & Window;
+
 function sketch(p5: P5Lib): void {
     p5.setup = (): void => {
         P5Context.initialize(p5);
@@ -46,6 +52,8 @@ function sketch(p5: P5Lib): void {
         const screen: JournalScreen = new JournalScreen('my name');
         ScreenHandler.addScreen(screen);
         ScreenHandler.currentScreen = screen.NAME;
+        let x: number = window.$fx.rand();
+        console.log(x);
     };
 
     p5.draw = (): void => {
