@@ -34,11 +34,16 @@ import {
 
 import { JournalScreen } from './journal-screen';
 
+// TODO - params
+// TODO   - username
+// TODO   - date font
+// TODO   - name font
+
 function sketch(p5: P5Lib): void {
     p5.setup = (): void => {
         P5Context.initialize(p5);
         CanvasContext.buildCanvas(ASPECT_RATIOS.SQUARE, 720, p5.P2D, true);
-        const screen: JournalScreen = new JournalScreen();
+        const screen: JournalScreen = new JournalScreen('my name');
         ScreenHandler.addScreen(screen);
         ScreenHandler.currentScreen = screen.NAME;
     };
