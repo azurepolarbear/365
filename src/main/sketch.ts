@@ -32,13 +32,13 @@ import {
     ScreenHandler
 } from '@batpb/genart';
 
-import { SketchScreen } from './sketch-screen';
+import { JournalScreen } from './journal-screen';
 
 function sketch(p5: P5Lib): void {
     p5.setup = (): void => {
         P5Context.initialize(p5);
         CanvasContext.buildCanvas(ASPECT_RATIOS.SQUARE, 720, p5.P2D, true);
-        const screen: SketchScreen = new SketchScreen();
+        const screen: JournalScreen = new JournalScreen();
         ScreenHandler.addScreen(screen);
         ScreenHandler.currentScreen = screen.NAME;
     };
