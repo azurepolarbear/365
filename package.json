@@ -1,7 +1,7 @@
 {
-  "name": "genart-template",
-  "version": "3.1.0",
-  "description": "a template for new generative art projects using the @batpb/genart library.",
+  "name": "365",
+  "version": "0.1.0",
+  "description": "the 365 algorithmic art project.",
   "private": true,
   "scripts": {
     "build:dev": "webpack --mode development",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brittni-and-the-polar-bear/genart-template.git"
+    "url": "git+https://github.com/brittni-and-the-polar-bear/365.git"
   },
   "keywords": [
     "algorithmic art",
@@ -28,24 +28,14 @@
     "template"
   ],
   "author": {
-    "name": "brittni and the polar bear",
-    "url": "https://linktr.ee/brittniandthepolarbear"
+    "name": "azurepolarbear",
+    "url": "https://linktr.ee/azurepolarbear"
   },
-  "contributors": [
-    {
-      "name": "brittni watkins",
-      "url": "https://linktr.ee/brittniwatkins"
-    },
-    {
-      "name": "azurepolarbear",
-      "url": "https://linktr.ee/azurepolarbear"
-    }
-  ],
   "license": "AGPL-3.0",
   "bugs": {
-    "url": "https://github.com/brittni-and-the-polar-bear/genart-template/issues"
+    "url": "https://github.com/brittni-and-the-polar-bear/365/issues"
   },
-  "homepage": "https://github.com/brittni-and-the-polar-bear/genart-template#readme",
+  "homepage": "https://github.com/brittni-and-the-polar-bear/365#readme",
   "dependencies": {
     "@batpb/genart": "^2.0.0-rc2",
     "p5": "^1.11.2"
