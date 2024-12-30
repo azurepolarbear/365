@@ -31,6 +31,7 @@ module.exports = {
     entry: {
         fxhash_head: {
             import: './src/fxhash/fxhash.min.js',
+            filename: 'fxhash.min.js'
         },
         p5: 'p5',
         genart: {
@@ -39,6 +40,7 @@ module.exports = {
         },
         sketch: {
             import: './src/main/sketch.ts',
+            filename: 'index.js',
             dependOn: ['p5', 'genart']
         }
     },
@@ -84,9 +86,9 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'out/dist'),
-        filename: '[name].[fullhash:8].js',
-        sourceMapFilename: '[name].[fullhash:8].map',
-        chunkFilename: '[name].[fullhash:8].js',
+        filename: '[name].js',
+        sourceMapFilename: '[name].map',
+        chunkFilename: '[name].js',
         clean: true
     },
     devServer: {
