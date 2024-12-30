@@ -77,10 +77,11 @@ export class JournalScreen extends CanvasScreen {
             yAlign: p5.TOP,
             coordinatePosition: p5.createVector(0.1, 0.95),
             coordinateMode: CoordinateMode.RATIO,
-            maxWidthRatio: 0.5,
+            maxWidthRatio: 0.50,
             color: this.#TEXT_COLOR
         };
         this.#SEED_DISPLAY = new TextDisplay(seedDisplayConfig);
+        this.addRedrawListener(this.#SEED_DISPLAY);
     }
 
     public draw(): void {
