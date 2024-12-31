@@ -367,6 +367,78 @@ const PC_FF704D: PaletteColor = {
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
 }
 
+const PC_E13762: PaletteColor = {
+    HEX: '#E13762',
+    RGB: { R: 225, G: 55, B: 98 },
+    HSL: { H: 345, S: 74, L: 55 },
+    NAME: 'intense passion',
+    DISCRIMINATOR: Discriminators.PALETTE_COLOR
+}
+
+const PC_9F1475: PaletteColor = {
+    HEX: '#9F1475',
+    RGB: { R: 159, G: 20, B: 117 },
+    HSL: { H: 318, S: 78, L: 35 },
+    NAME: 'haunted purple',
+    DISCRIMINATOR: Discriminators.PALETTE_COLOR
+}
+
+const PC_1E1A75: PaletteColor = {
+    HEX: '#1E1A75',
+    RGB: { R: 30, G: 26, B: 117 },
+    HSL: { H: 243, S: 64, L: 28 },
+    NAME: '20,000 leagues under the sea',
+    DISCRIMINATOR: Discriminators.PALETTE_COLOR
+}
+
+const PC_D7E3EA: PaletteColor = {
+    HEX: '#D7E3EA',
+    RGB: { R: 215, G: 227, B: 234 },
+    HSL: { H: 202, S: 31, L: 88 },
+    NAME: 'white sea',
+    DISCRIMINATOR: Discriminators.PALETTE_COLOR
+}
+
+const PC_CCB3DB: PaletteColor = {
+    HEX: '#CCB3DB',
+    RGB: { R: 204, G: 179, B: 219 },
+    HSL: { H: 278, S: 36, L: 78 },
+    NAME: 'sea lavender',
+    DISCRIMINATOR: Discriminators.PALETTE_COLOR
+}
+
+const PC_FFC7DB: PaletteColor = {
+    HEX: '#FFC7DB',
+    RGB: { R: 255, G: 199, B: 219 },
+    HSL: { H: 339, S: 100, L: 89 },
+    NAME: 'blossom tree',
+    DISCRIMINATOR: Discriminators.PALETTE_COLOR
+}
+
+const PC_FFADCB: PaletteColor = {
+    HEX: '#FFADCB',
+    RGB: { R: 255, G: 173, B: 203 },
+    HSL: { H: 338, S: 100, L: 84 },
+    NAME: 'heartfelt',
+    DISCRIMINATOR: Discriminators.PALETTE_COLOR
+}
+
+const PC_BEE0FE: PaletteColor = {
+    HEX: '#BEE0FE',
+    RGB: { R: 190, G: 224, B: 254 },
+    HSL: { H: 208, S: 97, L: 87 },
+    NAME: 'dithered sky',
+    DISCRIMINATOR: Discriminators.PALETTE_COLOR
+}
+
+const PC_A3D3FF: PaletteColor = {
+    HEX: '#A3D3FF',
+    RGB: { R: 163, G: 211, B: 255 },
+    HSL: { H: 209, S: 100, L: 82 },
+    NAME: 'baby blue',
+    DISCRIMINATOR: Discriminators.PALETTE_COLOR
+}
+
 const colors: PaletteColor[] = [
     PC_CAD3C5,
     PC_84A98C,
@@ -410,7 +482,16 @@ const colors: PaletteColor[] = [
     PC_EEFF05,
     PC_A5FF0A,
     PC_00DDFF,
-    PC_FF704D
+    PC_FF704D,
+    PC_E13762,
+    PC_9F1475,
+    PC_1E1A75,
+    PC_D7E3EA,
+    PC_CCB3DB,
+    PC_FFC7DB,
+    PC_FFADCB,
+    PC_BEE0FE,
+    PC_A3D3FF
 ]
 
 export function addNewPaletteColors(): void {
