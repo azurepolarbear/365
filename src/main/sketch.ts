@@ -21,7 +21,6 @@
  * for full license details.
  */
 
-// TODO - graph boolean parameter
 // TODO - random selection for graph fill
 // TODO - random selection for graph cell size type (RANDOM, SAME)
 // TODO - color selector from contrasting colors

@@ -150,14 +150,33 @@ export class JournalScreen extends CanvasScreen {
         this.#JOURNAL_DISPLAY = new TextDisplay(journalDisplayConfig);
         this.addRedrawListener(this.#JOURNAL_DISPLAY);
 
+        let graphYRatio: number;
+        let graphWidthRatio: number;
+        let graphHeightRatio: number;
+
+        if (this.#journalEntry === '' && this.#username === '') {
+            graphYRatio = 0.55;
+            graphWidthRatio = 0.75;
+            graphHeightRatio = 0.75;
+        } else if (this.#journalEntry === '') {
+            graphYRatio = 0.5;
+            graphWidthRatio = 0.65;
+            graphHeightRatio = 0.65;
+        } else {
+            graphYRatio = 0.41;
+            graphWidthRatio = 0.45;
+            graphHeightRatio = 0.45;
+        }
+
+        const graphFillMode: GraphFillMode = this.#selectGraphFillMode();
         this.#DATE_GRAPH = new SquareGraph({
-            center: p5.createVector(0.5, 0.41),
+            center: p5.createVector(0.5, graphYRatio),
             coordinateMode: CoordinateMode.RATIO,
-            widthRatio: 0.45,
-            heightRatio: 0.45,
+            widthRatio: graphWidthRatio,
+            heightRatio: graphHeightRatio,
             days: dayOfTheYear,
             colorSelector: new PaletteColorSelector(BRITTNI_PALETTE),
-            fillMode: GraphFillMode.RANDOM
+            fillMode: graphFillMode
         });
         this.addRedrawListener(this.#DATE_GRAPH);
 
@@ -169,7 +188,9 @@ export class JournalScreen extends CanvasScreen {
             'text color': this.#TEXT_COLOR.name,
             'journal color': this.#JOURNAL_COLOR.name,
             'font': config.font,
-            'journal font': config.journalFont
+            'journal font': config.journalFont,
+            'has graph': this.#DISPLAY_GRAPH,
+            'graph fill mode': graphFillMode
         });
     }
 
@@ -249,5 +270,15 @@ export class JournalScreen extends CanvasScreen {
         const g: number = ((1 - alphaRatio) * background.green) + (alphaRatio * color.green);
         const b: number = ((1 - alphaRatio) * background.blue) + (alphaRatio * color.blue);
         return (new Color(r, g, b)).hex;
+    }
+
+    #selectGraphFillMode(): GraphFillMode {
+        const r: boolean = Random.randomBoolean(0.8);
+
+        if (r) {
+            return GraphFillMode.RANDOM;
+        } else {
+            return GraphFillMode.SEQUENTIAL;
+        }
     }
 }
