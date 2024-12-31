@@ -25,7 +25,6 @@ import P5Lib from 'p5';
 
 import {
     ALL_PALETTE_COLORS,
-    BRITTNI_PALETTE,
     CanvasContext,
     CanvasScreen,
     Color,
@@ -35,12 +34,13 @@ import {
     CoordinateMode,
     P5Context,
     PaletteColor,
-    PaletteColorSelector,
     Random,
     StringMap
 } from '@batpb/genart';
 import {TextDisplay, TextDisplayConfig} from './text-display';
 import {GraphCellSizeSelection, GraphFillMode, SquareGraph} from "./date-graph";
+import {HexColorSelector} from "./hex-color-selector";
+import {addNewPaletteColors} from "./palette-colors";
 
 export interface JournalScreenConfig {
     username: string;
@@ -69,14 +69,9 @@ export class JournalScreen extends CanvasScreen {
     readonly #DISPLAY_GRAPH: boolean;
     readonly #DATE_GRAPH: SquareGraph;
 
-    #username: string = '';
-    #journalEntry: string = '';
-
     public constructor(config: JournalScreenConfig) {
         super('journal-screen');
         const p5: P5Lib = P5Context.p5;
-        this.#username = config.username;
-        this.#journalEntry = config.journalEntry;
         this.#DATE = new Date(Date.UTC(config.year, config.month - 1, config.day));
         this.#DATE_STRING = this.#DATE.toLocaleDateString('en-us', { timeZone: 'UTC', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
         this.#DISPLAY_GRAPH = config.hasGraph;
@@ -92,16 +87,15 @@ export class JournalScreen extends CanvasScreen {
         const millis: number = currentDay_Millis - startOfYear_Millis;
         const dayOfTheYear: number = Math.floor(millis / MILLIS_PER_DAY) + 1;
 
+        addNewPaletteColors();
         this.#populateHexMap();
         const colors = Array.from(this.#HEX_MAP.keys);
         const backgroundColorHex = Random.randomElement(colors) ?? '#FFFFFF';
-        const textColors = this.#HEX_MAP.get(backgroundColorHex) ?? ['#000000'];
-        const textColorHex = Random.randomElement(textColors) ?? '#000000';
-        const journalColorHex: string = Random.randomElement(textColors) ?? '#000000';
+        const colorSelector: HexColorSelector = new HexColorSelector(this.#HEX_MAP.get(backgroundColorHex) ?? ['#000000']);
 
         this.#BACKGROUND_COLOR = new Color(p5.color(backgroundColorHex));
-        this.#TEXT_COLOR = new Color(p5.color(textColorHex));
-        this.#JOURNAL_COLOR = new Color(p5.color(journalColorHex));
+        this.#TEXT_COLOR = colorSelector.getColor();
+        this.#JOURNAL_COLOR = colorSelector.getColor();
         this.#JOURNAL_COLOR.alpha = 100;
 
         while (!ColorContrastAssessor.meetsContrastStandard(this.#BACKGROUND_COLOR.hex, this.#RGBAToRGB(this.#JOURNAL_COLOR, this.#BACKGROUND_COLOR), ContrastStandard.AAA, ContrastFontSize.LARGE)) {
@@ -123,7 +117,7 @@ export class JournalScreen extends CanvasScreen {
         this.addRedrawListener(this.#DATE_DISPLAY);
 
         const nameDisplayConfig: TextDisplayConfig = {
-            text: this.#username,
+            text: config.username,
             textSizeMultiplier: 18,
             xAlign: p5.RIGHT,
             yAlign: p5.BOTTOM,
@@ -137,7 +131,7 @@ export class JournalScreen extends CanvasScreen {
         this.addRedrawListener(this.#NAME_DISPLAY);
 
         const journalDisplayConfig: TextDisplayConfig = {
-            text: this.#journalEntry,
+            text: config.journalEntry,
             textSizeMultiplier: 14,
             xAlign: p5.RIGHT,
             yAlign: p5.BOTTOM,
@@ -154,11 +148,11 @@ export class JournalScreen extends CanvasScreen {
         let graphWidthRatio: number;
         let graphHeightRatio: number;
 
-        if (this.#journalEntry === '' && this.#username === '') {
+        if (config.journalEntry === '' && config.username === '') {
             graphYRatio = 0.55;
             graphWidthRatio = 0.75;
             graphHeightRatio = 0.75;
-        } else if (this.#journalEntry === '') {
+        } else if (config.journalEntry === '') {
             graphYRatio = 0.5;
             graphWidthRatio = 0.65;
             graphHeightRatio = 0.65;
@@ -176,24 +170,25 @@ export class JournalScreen extends CanvasScreen {
             widthRatio: graphWidthRatio,
             heightRatio: graphHeightRatio,
             days: dayOfTheYear,
-            colorSelector: new PaletteColorSelector(BRITTNI_PALETTE),
+            colorSelector: colorSelector,
             fillMode: graphFillMode,
             cellSizeSelection: cellSizeSelection
         });
         this.addRedrawListener(this.#DATE_GRAPH);
 
         window.$fx.features({
-            'username': this.#username,
+            'username': config.username,
             'date': this.#DATE_STRING,
             'day of the year': dayOfTheYear,
-            'background color': this.#BACKGROUND_COLOR.name,
-            'text color': this.#TEXT_COLOR.name,
-            'journal color': this.#JOURNAL_COLOR.name,
             'font': config.font,
             'journal font': config.journalFont,
             'has graph': this.#DISPLAY_GRAPH,
             'graph fill mode': graphFillMode,
-            'cell size selection': cellSizeSelection
+            'cell size selection': cellSizeSelection,
+            'background color': this.#BACKGROUND_COLOR.name,
+            'text color': this.#TEXT_COLOR.name,
+            'journal color': this.#JOURNAL_COLOR.name,
+            'graph colors': colorSelector.getNames()
         });
     }
 
