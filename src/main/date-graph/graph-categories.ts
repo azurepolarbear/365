@@ -21,5 +21,12 @@
  * for full license details.
  */
 
-export * from './graph-categories';
-export * from './square-graph';
+export enum GraphCellSizeSelection {
+    RANDOM = 'random',
+    CONSTANT = 'constant'
+}
+
+export enum GraphFillMode {
+    RANDOM = 'random',
+    SEQUENTIAL = 'sequential'
+}

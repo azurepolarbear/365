@@ -21,11 +21,8 @@
  * for full license details.
  */
 
-// TODO - random selection for graph fill
-// TODO - random selection for graph cell size type (RANDOM, SAME)
 // TODO - color selector from contrasting colors
 // TODO - add more colors
-
 
 import P5Lib from 'p5';
 

@@ -40,7 +40,7 @@ import {
     StringMap
 } from '@batpb/genart';
 import {TextDisplay, TextDisplayConfig} from './text-display';
-import {GraphFillMode, SquareGraph} from "./date-graph/square-graph";
+import {GraphCellSizeSelection, GraphFillMode, SquareGraph} from "./date-graph";
 
 export interface JournalScreenConfig {
     username: string;
@@ -169,6 +169,7 @@ export class JournalScreen extends CanvasScreen {
         }
 
         const graphFillMode: GraphFillMode = this.#selectGraphFillMode();
+        const cellSizeSelection: GraphCellSizeSelection = this.#selectCellSizeSelection();
         this.#DATE_GRAPH = new SquareGraph({
             center: p5.createVector(0.5, graphYRatio),
             coordinateMode: CoordinateMode.RATIO,
@@ -176,7 +177,8 @@ export class JournalScreen extends CanvasScreen {
             heightRatio: graphHeightRatio,
             days: dayOfTheYear,
             colorSelector: new PaletteColorSelector(BRITTNI_PALETTE),
-            fillMode: graphFillMode
+            fillMode: graphFillMode,
+            cellSizeSelection: cellSizeSelection
         });
         this.addRedrawListener(this.#DATE_GRAPH);
 
@@ -190,7 +192,8 @@ export class JournalScreen extends CanvasScreen {
             'font': config.font,
             'journal font': config.journalFont,
             'has graph': this.#DISPLAY_GRAPH,
-            'graph fill mode': graphFillMode
+            'graph fill mode': graphFillMode,
+            'cell size selection': cellSizeSelection
         });
     }
 
@@ -279,6 +282,16 @@ export class JournalScreen extends CanvasScreen {
             return GraphFillMode.RANDOM;
         } else {
             return GraphFillMode.SEQUENTIAL;
+        }
+    }
+
+    #selectCellSizeSelection(): GraphCellSizeSelection {
+        const r: boolean = Random.randomBoolean(0.75);
+
+        if (r) {
+            return GraphCellSizeSelection.RANDOM;
+        } else {
+            return GraphCellSizeSelection.CONSTANT
         }
     }
 }

@@ -32,6 +32,7 @@ import {
     RandomSelector
 } from "@batpb/genart";
 import P5Lib from "p5";
+import {GraphCellSizeSelection, GraphFillMode} from "./graph-categories";
 
 export interface SquareGraphConfig {
     days: number;
@@ -41,6 +42,7 @@ export interface SquareGraphConfig {
     heightRatio: number;
     colorSelector: ColorSelector;
     fillMode: GraphFillMode;
+    cellSizeSelection: GraphCellSizeSelection;
 }
 
 interface CellConfig {
@@ -48,6 +50,7 @@ interface CellConfig {
     columnIndex: number;
     widthRatio: number;
     heightRatio: number;
+    sizeMultiplier: number;
     isActive: boolean;
     color: Color;
 }
@@ -70,7 +73,7 @@ class Cell {
         this.#isActive = config.isActive;
         this.#COLOR = config.color;
         this.#COLOR.alpha = Random.randomInt(50, 255);
-        this.#SIZE_MULTIPLIER = Random.randomFloat(0.25, 1.5);
+        this.#SIZE_MULTIPLIER = config.sizeMultiplier;
     }
 
     public get isActive(): boolean {
@@ -94,11 +97,6 @@ class Cell {
     public activate(): void {
         this.#isActive = true;
     }
-}
-
-export enum GraphFillMode {
-    RANDOM = 'random',
-    SEQUENTIAL = 'sequential'
 }
 
 // TODO - grid size determined by day of the year
@@ -127,15 +125,23 @@ export class SquareGraph implements CanvasRedrawListener {
         this.#cellWidth = (this.#WIDTH_RATIO *  p5.width)/ this.#CELL_COLUMNS;
         this.#cellHeight = (this.#HEIGHT_RATIO * p5.height) / this.#CELL_ROWS;
 
+        let cellSizeMultiplier: number = Random.randomFloat(0.5, 1.5);
+
         for (let i: number = 0; i < this.#CELL_ROWS; i++) {
             const row: Cell[] = [];
 
             for (let j: number = 0; j < this.#CELL_COLUMNS; j++) {
+
+                if (config.cellSizeSelection === GraphCellSizeSelection.RANDOM) {
+                    cellSizeMultiplier = Random.randomFloat(0.5, 1.5);
+                }
+
                 row.push(new Cell({
                     rowIndex: i,
                     columnIndex: j,
                     widthRatio: this.#cellWidth / p5.width,
                     heightRatio: this.#cellHeight / p5.height,
+                    sizeMultiplier: cellSizeMultiplier,
                     isActive: false,
                     color: config.colorSelector.getColor()
                 }));
