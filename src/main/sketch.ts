@@ -33,48 +33,79 @@ import {
     ScreenHandler
 } from '@batpb/genart';
 
-import { JournalScreen } from './journal-screen';
+import {JournalScreen, JournalScreenConfig} from './journal-screen';
 
 // TODO - params
-// TODO   - username
 // TODO   - date font
 // TODO   - name font
 
-// import { FxParamValue, FxParamType } from '@fxhash/params/types';
-
+import { FxParamValue, FxParamType } from '@fxhash/params/types';
 
 const date: Date = new Date();
-date.getDay();
-
-console.log(date);
-console.log(date.getDate());
-
-const day: number = date.getDate();
-const month: number = date.getMonth() + 1;
-const year: number = date.getFullYear();
+const paramDay: number = date.getUTCDate();
+const paramMonth: number = date.getUTCMonth() + 1;
+const paramYear: number = date.getUTCFullYear();
 
 window.$fx.params([
-    { id: 'day', name: 'day of the month', type: 'number', default: day, value: day, options: { min: day - 1, max: day + 1, step: 1 } },
-    { id: 'month', name: 'month of the year', type: 'number', default: month, value: month, options: { min: month, max: month, step: 0 } },
-    { id: 'year', name: 'year', type: 'number', default: year, value: year, options: { min: year, max: year, step: 0 } },
+    { id: 'day', name: 'day of the month', type: 'number', default: paramDay, value: paramDay, options: { min: paramDay - 1, max: paramDay + 1, step: 1 } },
+    { id: 'month', name: 'month of the year', type: 'number', default: paramMonth, value: paramMonth, options: { min: paramMonth, max: paramMonth, step: 0 } },
+    { id: 'year', name: 'year', type: 'number', default: paramYear, value: paramYear, options: { min: paramYear, max: paramYear, step: 0 } },
     { id: 'username', name: 'name', type: 'string', default: '', value: 'my name', options: { minLength: 0, maxLength: 64 } }
 ]);
+
+function getParamString(id: string): string | undefined {
+    let value: FxParamValue<FxParamType> = window.$fx.getParam(id);
+    let result: string | undefined = undefined;
+
+    if (typeof value === 'string') {
+        result = value;
+    }
+
+    return result;
+}
+
+function getParamInteger(id: string): number | undefined {
+    let result: number | undefined;
+    result = getParamFloat(id);
+
+    if (result) {
+        result = Math.floor(result);
+    }
+
+    return result;
+}
+
+function getParamFloat(id: string): number | undefined {
+    let value: FxParamValue<FxParamType> = window.$fx.getParam(id);
+    let result: number | undefined = undefined;
+
+    if (typeof value === 'number') {
+        result = value;
+    }
+
+    return result;
+}
 
 function sketch(p5: P5Lib): void {
     p5.setup = (): void => {
         P5Context.initialize(p5);
         Random.randomMethod = window.$fx.rand;
         CanvasContext.buildCanvas(ASPECT_RATIOS.SQUARE, 720, p5.P2D, true);
+        const today: Date = new Date();
 
-        let name = window.$fx.getParam('username');
-        let username: string = '';
+        const name: string = getParamString('username') ?? '';
+        const day: number = getParamInteger('day') ?? today.getUTCDate();
+        const month: number = getParamInteger('month') ?? (today.getUTCMonth() + 1);
+        const year: number = getParamInteger('year') ?? today.getUTCFullYear();
 
-        if (typeof name === 'string') {
-            name = name.trim();
-            username = name;
+        const config: JournalScreenConfig = {
+            username: name,
+            day: day,
+            month: month,
+            year: year
         }
 
-        const screen: JournalScreen = new JournalScreen(username);
+        const screen: JournalScreen = new JournalScreen(config);
         ScreenHandler.addScreen(screen);
         ScreenHandler.currentScreen = screen.NAME;
     };

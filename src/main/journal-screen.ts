@@ -3,14 +3,21 @@ import P5Lib from 'p5';
 import { ALL_PALETTE_COLORS, CanvasContext, CanvasScreen, Color, ColorContrastAssessor, ContrastFontSize, ContrastStandard, CoordinateMode, P5Context, PaletteColor, Random, StringMap } from '@batpb/genart';
 import { TextDisplay, TextDisplayConfig } from './text-display';
 
+export interface JournalScreenConfig {
+    username: string;
+    day: number;
+    month: number;
+    year: number;
+}
+
 export class JournalScreen extends CanvasScreen {
     readonly #DATE: Date;
     readonly #DATE_STRING: string;
     readonly #DATE_DISPLAY: TextDisplay;
     readonly #NAME_DISPLAY: TextDisplay;
-    
+
     // for debugging
-    readonly #SEED_DISPLAY: TextDisplay;
+    readonly #DEBUG_SEED_DISPLAY: TextDisplay;
 
     readonly #BACKGROUND_COLOR: Color;
     readonly #TEXT_COLOR: Color;
@@ -21,13 +28,14 @@ export class JournalScreen extends CanvasScreen {
     #username: string = '';
     // #dateGraph: unknown = null;
 
-    #seedVerification: number;
+    #debugSeed: number;
 
-    public constructor(username: string) {
+    public constructor(config: JournalScreenConfig) {
         super('journal-screen');
         const p5: P5Lib = P5Context.p5;
-        this.#DATE = new Date();
-        this.#DATE_STRING = this.#DATE.toLocaleDateString('en-us', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        this.#username = config.username;
+        this.#DATE = new Date(Date.UTC(config.year, config.month - 1, config.day));
+        this.#DATE_STRING = this.#DATE.toLocaleDateString('en-us', { timeZone: 'UTC', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 
         this.#populateHexMap();
         const colors = Array.from(this.#HEX_MAP.keys);
@@ -48,11 +56,9 @@ export class JournalScreen extends CanvasScreen {
             maxWidthRatio: 0.8,
             color: this.#TEXT_COLOR
         };
-
         this.#DATE_DISPLAY = new TextDisplay(dateDisplayConfig);
         this.addRedrawListener(this.#DATE_DISPLAY);
 
-        this.#username = username;
         const nameDisplayConfig: TextDisplayConfig = {
             text: this.#username,
             textSizeMultiplier: 18,
@@ -66,12 +72,9 @@ export class JournalScreen extends CanvasScreen {
         this.#NAME_DISPLAY = new TextDisplay(nameDisplayConfig);
         this.addRedrawListener(this.#NAME_DISPLAY);
 
-        console.log(`background color: ${this.#BACKGROUND_COLOR.name}`);
-        console.log(`text color: ${this.#TEXT_COLOR.name}`);
-
-        this.#seedVerification = Random.randomInt(0, 1_000_000);
-        const seedDisplayConfig: TextDisplayConfig = {
-            text: `hash check: ${this.#seedVerification}`,
+        this.#debugSeed = Random.randomInt(0, 1_000_000);
+        const debugSeedDisplayConfig: TextDisplayConfig = {
+            text: `hash check: ${this.#debugSeed}`,
             textSizeMultiplier: 10,
             xAlign: p5.LEFT,
             yAlign: p5.TOP,
@@ -80,8 +83,18 @@ export class JournalScreen extends CanvasScreen {
             maxWidthRatio: 0.50,
             color: this.#TEXT_COLOR
         };
-        this.#SEED_DISPLAY = new TextDisplay(seedDisplayConfig);
-        this.addRedrawListener(this.#SEED_DISPLAY);
+        this.#DEBUG_SEED_DISPLAY = new TextDisplay(debugSeedDisplayConfig);
+        this.addRedrawListener(this.#DEBUG_SEED_DISPLAY);
+
+        // console.log(`background color: ${this.#BACKGROUND_COLOR.name}`);
+        // console.log(`text color: ${this.#TEXT_COLOR.name}`);
+
+        window.$fx.features({
+            'username': this.#username,
+            'date': this.#DATE_STRING,
+            'background-color': this.#BACKGROUND_COLOR.name,
+            'text-color': this.#TEXT_COLOR.name
+        });
     }
 
     public draw(): void {
@@ -89,7 +102,7 @@ export class JournalScreen extends CanvasScreen {
         p5.background(this.#BACKGROUND_COLOR.color);
         this.#DATE_DISPLAY.draw();
         this.#NAME_DISPLAY.draw();
-        this.#SEED_DISPLAY.draw();
+        // this.#DEBUG_SEED_DISPLAY.draw();
     }
 
     public keyPressed(): void {
@@ -103,7 +116,7 @@ export class JournalScreen extends CanvasScreen {
     }
 
     public mousePressed(): void {
-        console.log('mouse pressed');
+        // console.log('mouse pressed');
     }
 
     #populateHexMap(): void {
@@ -135,6 +148,14 @@ export class JournalScreen extends CanvasScreen {
             }
         }
 
-        console.log(this.#HEX_MAP);
+        let totalChoices: number = 0;
+
+        for (const key of this.#HEX_MAP.keys) {
+            const choices: string[] = this.#HEX_MAP.get(key) ?? [];
+            totalChoices += choices.length;
+        }
+
+        // console.log(this.#HEX_MAP);
+        // console.log(`total choices: ${totalChoices}`);
     }
 }
