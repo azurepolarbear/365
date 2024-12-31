@@ -21,6 +21,13 @@
  * for full license details.
  */
 
+// TODO - graph boolean parameter
+// TODO - random selection for graph fill
+// TODO - random selection for graph cell size type (RANDOM, SAME)
+// TODO - color selector from contrasting colors
+// TODO - add more colors
+
+
 import P5Lib from 'p5';
 
 import '../../assets/styles/sketch.css';
@@ -34,10 +41,6 @@ import {
 } from '@batpb/genart';
 
 import {JournalScreen, JournalScreenConfig} from './journal-screen';
-
-// TODO - params
-// TODO   - date font
-// TODO   - name font
 
 import { FxParamValue, FxParamType } from '@fxhash/params/types';
 

@@ -47,7 +47,6 @@ export class TextDisplay implements CanvasRedrawListener {
     readonly #FONT: string;
     readonly #TEXT_COLOR: Color;
 
-
     public constructor(config: TextDisplayConfig) {
         this.#COORDINATE = new Coordinate();
         this.#COORDINATE.setPosition(config.coordinatePosition, config.coordinateMode);
@@ -62,7 +61,9 @@ export class TextDisplay implements CanvasRedrawListener {
 
     public draw(): void {
         const p5: P5Lib = P5Context.p5;
+        p5.rectMode(p5.CORNER);
         p5.fill(this.#TEXT_COLOR.color);
+        p5.noStroke();
         p5.textFont(this.#FONT);
         p5.textWrap(p5.WORD);
         p5.textAlign(this.#X_ALIGN, this.#Y_ALIGN);

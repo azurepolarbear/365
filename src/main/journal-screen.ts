@@ -23,8 +23,24 @@
 
 import P5Lib from 'p5';
 
-import { ALL_PALETTE_COLORS, CanvasContext, CanvasScreen, Color, ColorContrastAssessor, ContrastFontSize, ContrastStandard, CoordinateMode, P5Context, PaletteColor, Random, StringMap } from '@batpb/genart';
-import { TextDisplay, TextDisplayConfig } from './text-display';
+import {
+    ALL_PALETTE_COLORS,
+    BRITTNI_PALETTE,
+    CanvasContext,
+    CanvasScreen,
+    Color,
+    ColorContrastAssessor,
+    ContrastFontSize,
+    ContrastStandard,
+    CoordinateMode,
+    P5Context,
+    PaletteColor,
+    PaletteColorSelector,
+    Random,
+    StringMap
+} from '@batpb/genart';
+import {TextDisplay, TextDisplayConfig} from './text-display';
+import {GraphFillMode, SquareGraph} from "./date-graph/square-graph";
 
 export interface JournalScreenConfig {
     username: string;
@@ -43,20 +59,16 @@ export class JournalScreen extends CanvasScreen {
     readonly #NAME_DISPLAY: TextDisplay;
     readonly #JOURNAL_DISPLAY: TextDisplay;
 
-    // for debugging
-    readonly #DEBUG_SEED_DISPLAY: TextDisplay;
-
     readonly #BACKGROUND_COLOR: Color;
     readonly #TEXT_COLOR: Color;
     readonly #JOURNAL_COLOR: Color;
 
     readonly #HEX_MAP: StringMap<string[]> = new StringMap<string[]>();
 
+    readonly #DATE_GRAPH: SquareGraph;
+
     #username: string = '';
     #journalEntry: string = '';
-    // #dateGraph: unknown = null;
-
-    #debugSeed: number;
 
     public constructor(config: JournalScreenConfig) {
         super('journal-screen');
@@ -65,6 +77,17 @@ export class JournalScreen extends CanvasScreen {
         this.#journalEntry = config.journalEntry;
         this.#DATE = new Date(Date.UTC(config.year, config.month - 1, config.day));
         this.#DATE_STRING = this.#DATE.toLocaleDateString('en-us', { timeZone: 'UTC', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+
+        const MILLIS_PER_SECOND: number = 1000;
+        const SECONDS_PER_MINUTE: number = 60;
+        const MINUTES_PER_HOUR: number = 60;
+        const HOURS_PER_DAY: number = 24;
+        const MILLIS_PER_DAY: number = MILLIS_PER_SECOND * SECONDS_PER_MINUTE * MINUTES_PER_HOUR * HOURS_PER_DAY;
+        const startOfYear: Date = new Date(Date.UTC(this.#DATE.getUTCFullYear(), 0, 1));
+        const startOfYear_Millis: number = startOfYear.getTime();
+        const currentDay_Millis: number = this.#DATE.getTime();
+        const millis: number = currentDay_Millis - startOfYear_Millis;
+        const dayOfTheYear: number = Math.floor(millis / MILLIS_PER_DAY) + 1;
 
         this.#populateHexMap();
         const colors = Array.from(this.#HEX_MAP.keys);
@@ -124,24 +147,21 @@ export class JournalScreen extends CanvasScreen {
         this.#JOURNAL_DISPLAY = new TextDisplay(journalDisplayConfig);
         this.addRedrawListener(this.#JOURNAL_DISPLAY);
 
-        this.#debugSeed = Random.randomInt(0, 1_000_000);
-        const debugSeedDisplayConfig: TextDisplayConfig = {
-            text: `hash check: ${this.#debugSeed}`,
-            textSizeMultiplier: 10,
-            xAlign: p5.LEFT,
-            yAlign: p5.TOP,
-            coordinatePosition: p5.createVector(0.1, 0.95),
+        this.#DATE_GRAPH = new SquareGraph({
+            center: p5.createVector(0.5, 0.41),
             coordinateMode: CoordinateMode.RATIO,
-            maxWidthRatio: 0.50,
-            color: this.#JOURNAL_COLOR,
-            font: config.font
-        };
-        this.#DEBUG_SEED_DISPLAY = new TextDisplay(debugSeedDisplayConfig);
-        this.addRedrawListener(this.#DEBUG_SEED_DISPLAY);
+            widthRatio: 0.45,
+            heightRatio: 0.45,
+            days: dayOfTheYear,
+            colorSelector: new PaletteColorSelector(BRITTNI_PALETTE),
+            fillMode: GraphFillMode.RANDOM
+        });
+        this.addRedrawListener(this.#DATE_GRAPH);
 
         window.$fx.features({
             'username': this.#username,
             'date': this.#DATE_STRING,
+            'day of the year': dayOfTheYear,
             'background color': this.#BACKGROUND_COLOR.name,
             'text color': this.#TEXT_COLOR.name,
             'journal color': this.#JOURNAL_COLOR.name,
@@ -153,10 +173,10 @@ export class JournalScreen extends CanvasScreen {
     public draw(): void {
         const p5: P5Lib = P5Context.p5;
         p5.background(this.#BACKGROUND_COLOR.color);
+        this.#DATE_GRAPH.draw();
         this.#DATE_DISPLAY.draw();
         this.#NAME_DISPLAY.draw();
         this.#JOURNAL_DISPLAY.draw();
-        // this.#DEBUG_SEED_DISPLAY.draw();
     }
 
     public keyPressed(): void {
@@ -210,7 +230,7 @@ export class JournalScreen extends CanvasScreen {
         }
 
         // console.log(this.#HEX_MAP);
-        // console.log(`total choices: ${totalChoices}`);
+        console.log(`total choices: ${totalChoices}`);
     }
 
     // TODO - Add functionality to @batpb/genart
