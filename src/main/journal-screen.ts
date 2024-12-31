@@ -50,6 +50,7 @@ export interface JournalScreenConfig {
     journalEntry: string;
     font: string;
     journalFont: string;
+    hasGraph: boolean;
 }
 
 export class JournalScreen extends CanvasScreen {
@@ -65,6 +66,7 @@ export class JournalScreen extends CanvasScreen {
 
     readonly #HEX_MAP: StringMap<string[]> = new StringMap<string[]>();
 
+    readonly #DISPLAY_GRAPH: boolean;
     readonly #DATE_GRAPH: SquareGraph;
 
     #username: string = '';
@@ -77,6 +79,7 @@ export class JournalScreen extends CanvasScreen {
         this.#journalEntry = config.journalEntry;
         this.#DATE = new Date(Date.UTC(config.year, config.month - 1, config.day));
         this.#DATE_STRING = this.#DATE.toLocaleDateString('en-us', { timeZone: 'UTC', weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        this.#DISPLAY_GRAPH = config.hasGraph;
 
         const MILLIS_PER_SECOND: number = 1000;
         const SECONDS_PER_MINUTE: number = 60;
@@ -124,7 +127,7 @@ export class JournalScreen extends CanvasScreen {
             textSizeMultiplier: 18,
             xAlign: p5.RIGHT,
             yAlign: p5.BOTTOM,
-            coordinatePosition: p5.createVector(0.1, 0.9),
+            coordinatePosition: p5.createVector(0.1, 0.95),
             coordinateMode: CoordinateMode.RATIO,
             maxWidthRatio: 0.8,
             color: this.#TEXT_COLOR,
@@ -173,7 +176,11 @@ export class JournalScreen extends CanvasScreen {
     public draw(): void {
         const p5: P5Lib = P5Context.p5;
         p5.background(this.#BACKGROUND_COLOR.color);
-        this.#DATE_GRAPH.draw();
+
+        if (this.#DISPLAY_GRAPH) {
+            this.#DATE_GRAPH.draw();
+        }
+
         this.#DATE_DISPLAY.draw();
         this.#NAME_DISPLAY.draw();
         this.#JOURNAL_DISPLAY.draw();

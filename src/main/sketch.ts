@@ -108,8 +108,20 @@ window.$fx.params([
     { id: 'username', name: 'name', type: 'string', default: '', value: 'my name', options: { minLength: 0, maxLength: 64 } },
     { id: 'journal', name: 'journal entry', type: 'string', default: '', value: '', options: { minLength: 0, maxLength: 256 } },
     { id: 'font', name: 'font', type: 'select', default: 'Arial', value: 'Arial', options: { options: fonts } },
-    { id: 'journalFont', name: 'journal font', type: 'select', default: 'Arial',  value: 'Arial', options: { options: fonts } }
+    { id: 'journalFont', name: 'journal font', type: 'select', default: 'Arial',  value: 'Arial', options: { options: fonts } },
+    { id: 'hasGraph', name: 'would you like a graph?', type: 'boolean', default: true, value: true, options: undefined }
 ]);
+
+function getParamBoolean(id: string): boolean | undefined {
+    let value: FxParamValue<FxParamType> = window.$fx.getParam(id);
+    let result: boolean | undefined = undefined;
+
+    if (typeof value === 'boolean') {
+        result = value;
+    }
+
+    return result;
+}
 
 function getParamString(id: string): string | undefined {
     let value: FxParamValue<FxParamType> = window.$fx.getParam(id);
@@ -158,6 +170,7 @@ function sketch(p5: P5Lib): void {
         const year: number = getParamInteger('year') ?? today.getUTCFullYear();
         const font: string = getParamString('font') ?? 'Arial';
         const journalFont: string = getParamString('journalFont') ?? 'Arial';
+        const hasGraph: boolean = getParamBoolean('hasGraph') ?? true;
 
         const config: JournalScreenConfig = {
             username: name.trim(),
@@ -166,7 +179,8 @@ function sketch(p5: P5Lib): void {
             journalFont: journalFont.trim(),
             day: day,
             month: month,
-            year: year
+            year: year,
+            hasGraph: hasGraph
         }
 
         const screen: JournalScreen = new JournalScreen(config);
