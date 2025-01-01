@@ -181,7 +181,6 @@ export class JournalScreen extends CanvasScreen {
         window.$fx.features({
             'username': config.username,
             'date': this.#DATE_STRING,
-            'day of the year': dayOfTheYear,
             'font': config.font,
             'journal font': config.journalFont,
             'has graph': this.#DISPLAY_GRAPH,
@@ -189,8 +188,7 @@ export class JournalScreen extends CanvasScreen {
             'cell size selection': cellSizeSelection,
             'background color': this.#BACKGROUND_COLOR.name,
             'text color': this.#TEXT_COLOR.name,
-            'journal color': this.#JOURNAL_COLOR.name,
-            'graph colors': colorSelector.getNames()
+            'journal color': this.#JOURNAL_COLOR.name
         });
     }
 
@@ -256,9 +254,6 @@ export class JournalScreen extends CanvasScreen {
             const choices: string[] = this.#HEX_MAP.get(key) ?? [];
             totalChoices += choices.length;
         }
-
-        // console.log(this.#HEX_MAP);
-        console.log(`total choices: ${totalChoices}`);
     }
 
     // TODO - Add functionality to @batpb/genart

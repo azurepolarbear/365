@@ -75,7 +75,7 @@ module.exports = {
         emitOnErrors: false,
         // mangleExports: true,
         // mergeDuplicateChunks: true,
-        // minimize: true,
+        minimize: true,
         // providedExports: true,
         // removeAvailableModules: true,
         // removeEmptyChunks: true,
