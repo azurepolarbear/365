@@ -439,6 +439,46 @@ const PC_A3D3FF: PaletteColor = {
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
 }
 
+const PC_95DFCA: PaletteColor = {
+    HEX: '#95DFCA',
+    RGB: { R: 149, G: 223, B: 202 },
+    HSL: { H: 163, S: 54, L: 73 },
+    NAME: 'beach glass',
+    DISCRIMINATOR: Discriminators.PALETTE_COLOR
+}
+
+const PC_445F54: PaletteColor = {
+    HEX: '#445F54',
+    RGB: { R: 68, G: 95, B: 84 },
+    HSL: { H: 156, S: 17, L: 32 },
+    NAME: 'mission jewel',
+    DISCRIMINATOR: Discriminators.PALETTE_COLOR
+}
+
+const PC_100909: PaletteColor = {
+    HEX: '#100909',
+    RGB: { R: 16, G: 9, B: 9 },
+    HSL: { H: 0, S: 28, L: 5 },
+    NAME: 'chyornyi black',
+    DISCRIMINATOR: Discriminators.PALETTE_COLOR
+}
+
+const PC_220716: PaletteColor = {
+    HEX: '#220716',
+    RGB: { R: 34, G: 7, B: 22 },
+    HSL: { H: 327, S: 66, L: 8 },
+    NAME: 'belladonna',
+    DISCRIMINATOR: Discriminators.PALETTE_COLOR
+}
+
+const PC_280606: PaletteColor = {
+    HEX: '#280606',
+    RGB: { R: 40, G: 6, B: 6 },
+    HSL: { H: 0, S: 74, L: 9 },
+    NAME: 'sepia black',
+    DISCRIMINATOR: Discriminators.PALETTE_COLOR
+}
+
 const colors: PaletteColor[] = [
     PC_CAD3C5,
     PC_84A98C,
@@ -491,7 +531,12 @@ const colors: PaletteColor[] = [
     PC_FFC7DB,
     PC_FFADCB,
     PC_BEE0FE,
-    PC_A3D3FF
+    PC_A3D3FF,
+    PC_95DFCA,
+    PC_445F54,
+    PC_100909,
+    PC_220716,
+    PC_280606
 ]
 
 export function addNewPaletteColors(): void {
