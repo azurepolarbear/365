@@ -247,13 +247,6 @@ export class JournalScreen extends CanvasScreen {
                 }
             }
         }
-
-        let totalChoices: number = 0;
-
-        for (const key of this.#HEX_MAP.keys) {
-            const choices: string[] = this.#HEX_MAP.get(key) ?? [];
-            totalChoices += choices.length;
-        }
     }
 
     // TODO - Add functionality to @batpb/genart
