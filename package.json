@@ -38,6 +38,7 @@
   "homepage": "https://github.com/brittni-and-the-polar-bear/365#readme",
   "dependencies": {
     "@batpb/genart": "^2.0.0-rc2",
+    "@fxhash/params": "^0.0.10",
     "@fxhash/project-sdk": "^0.0.13",
     "p5": "^1.11.2"
   },

@@ -37,10 +37,12 @@ import {
     Random,
     StringMap
 } from '@batpb/genart';
-import {TextDisplay, TextDisplayConfig} from './text-display';
-import {GraphCellSizeSelection, GraphFillMode, SquareGraph} from "./date-graph";
-import {HexColorSelector} from "./hex-color-selector";
-import {addNewPaletteColors} from "./palette-colors";
+
+import { GraphCellSizeSelection, GraphFillMode, SquareGraph } from './date-graph';
+import { TextDisplay, TextDisplayConfig } from './text-display';
+
+import { HexColorSelector } from './hex-color-selector';
+import { addNewPaletteColors } from './palette-colors';
 
 export interface JournalScreenConfig {
     username: string;
@@ -140,7 +142,7 @@ export class JournalScreen extends CanvasScreen {
             maxWidthRatio: 0.8,
             color: this.#JOURNAL_COLOR,
             font: config.journalFont
-        }
+        };
         this.#JOURNAL_DISPLAY = new TextDisplay(journalDisplayConfig);
         this.addRedrawListener(this.#JOURNAL_DISPLAY);
 
@@ -286,7 +288,7 @@ export class JournalScreen extends CanvasScreen {
         if (r) {
             return GraphCellSizeSelection.RANDOM;
         } else {
-            return GraphCellSizeSelection.CONSTANT
+            return GraphCellSizeSelection.CONSTANT;
         }
     }
 }

@@ -36,7 +36,7 @@ import {
     ScreenHandler
 } from '@batpb/genart';
 
-import {JournalScreen, JournalScreenConfig} from './journal-screen';
+import { JournalScreen, JournalScreenConfig } from './journal-screen';
 
 import { FxParamValue, FxParamType } from '@fxhash/params/types';
 
@@ -95,7 +95,7 @@ const fonts: string[] = [
     'monospace',
     'sans-serif',
     'serif'
-]
+];
 
 window.$fx.params([
     { id: 'day', name: 'day of the month', type: 'number', default: paramDay, value: paramDay, options: { min: paramDay - 1, max: paramDay + 1, step: 1 } },
@@ -104,12 +104,12 @@ window.$fx.params([
     { id: 'username', name: 'name', type: 'string', default: '', value: 'my name', options: { minLength: 0, maxLength: 64 } },
     { id: 'journal', name: 'journal entry', type: 'string', default: '', value: '', options: { minLength: 0, maxLength: 256 } },
     { id: 'font', name: 'font', type: 'select', default: 'Arial', value: 'Arial', options: { options: fonts } },
-    { id: 'journalFont', name: 'journal font', type: 'select', default: 'Arial',  value: 'Arial', options: { options: fonts } },
+    { id: 'journalFont', name: 'journal font', type: 'select', default: 'Arial', value: 'Arial', options: { options: fonts } },
     { id: 'hasGraph', name: 'would you like a graph?', type: 'boolean', default: true, value: true, options: undefined }
 ]);
 
 function getParamBoolean(id: string): boolean | undefined {
-    let value: FxParamValue<FxParamType> = window.$fx.getParam(id);
+    const value: FxParamValue<FxParamType> = window.$fx.getParam(id);
     let result: boolean | undefined = undefined;
 
     if (typeof value === 'boolean') {
@@ -120,10 +120,21 @@ function getParamBoolean(id: string): boolean | undefined {
 }
 
 function getParamString(id: string): string | undefined {
-    let value: FxParamValue<FxParamType> = window.$fx.getParam(id);
+    const value: FxParamValue<FxParamType> = window.$fx.getParam(id);
     let result: string | undefined = undefined;
 
     if (typeof value === 'string') {
+        result = value;
+    }
+
+    return result;
+}
+
+function getParamFloat(id: string): number | undefined {
+    const value: FxParamValue<FxParamType> = window.$fx.getParam(id);
+    let result: number | undefined = undefined;
+
+    if (typeof value === 'number') {
         result = value;
     }
 
@@ -136,17 +147,6 @@ function getParamInteger(id: string): number | undefined {
 
     if (result) {
         result = Math.floor(result);
-    }
-
-    return result;
-}
-
-function getParamFloat(id: string): number | undefined {
-    let value: FxParamValue<FxParamType> = window.$fx.getParam(id);
-    let result: number | undefined = undefined;
-
-    if (typeof value === 'number') {
-        result = value;
     }
 
     return result;
@@ -177,7 +177,7 @@ function sketch(p5: P5Lib): void {
             month: month,
             year: year,
             hasGraph: hasGraph
-        }
+        };
 
         const screen: JournalScreen = new JournalScreen(config);
         ScreenHandler.addScreen(screen);

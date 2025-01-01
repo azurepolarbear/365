@@ -21,8 +21,9 @@
  * for full license details.
  */
 
-import {Color, ColorSelector, ColorSelectorType, P5Context, Random, RandomSelector} from "@batpb/genart";
-import P5Lib from "p5";
+import P5Lib from 'p5';
+
+import { Color, ColorSelector, ColorSelectorType, P5Context, Random, RandomSelector } from '@batpb/genart';
 
 export class HexColorSelector extends ColorSelector {
     readonly #NAMES: string[] = [];
@@ -35,7 +36,7 @@ export class HexColorSelector extends ColorSelector {
         super('Hex Color Selector', Random.randomBoolean());
 
         const size: number = Random.randomInt(1, HexColorSelector.MAX_COLORS);
-        const selector: RandomSelector<string> = new RandomSelector(hexPool);
+        const selector: RandomSelector<string> = new RandomSelector<string>(hexPool);
 
         for (let i: number = 0; i < size; i++) {
             const hex: string | undefined = selector.getRandomElementAndRemove();

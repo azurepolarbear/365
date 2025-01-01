@@ -21,6 +21,8 @@
  * for full license details.
  */
 
+import P5Lib from 'p5';
+
 import {
     CanvasRedrawListener,
     Color,
@@ -30,9 +32,9 @@ import {
     P5Context,
     Random,
     RandomSelector
-} from "@batpb/genart";
-import P5Lib from "p5";
-import {GraphCellSizeSelection, GraphFillMode} from "./graph-categories";
+} from '@batpb/genart';
+
+import { GraphCellSizeSelection, GraphFillMode } from './graph-categories';
 
 export interface SquareGraphConfig {
     days: number;
@@ -110,8 +112,6 @@ export class SquareGraph implements CanvasRedrawListener {
     readonly #WIDTH_RATIO: number;
     readonly #HEIGHT_RATIO: number;
     readonly #CELLS: Cell[][] = [];
-    readonly #CELL_ROWS: number = 20;
-    readonly #CELL_COLUMNS: number = 19;
 
     #cellWidth: number = 0;
     #cellHeight: number = 0;
@@ -122,16 +122,15 @@ export class SquareGraph implements CanvasRedrawListener {
         this.#CENTER.setPosition(config.center, config.coordinateMode);
         this.#WIDTH_RATIO = config.widthRatio;
         this.#HEIGHT_RATIO = config.heightRatio;
-        this.#cellWidth = (this.#WIDTH_RATIO *  p5.width)/ this.#CELL_COLUMNS;
-        this.#cellHeight = (this.#HEIGHT_RATIO * p5.height) / this.#CELL_ROWS;
+        this.#cellWidth = (this.#WIDTH_RATIO * p5.width) / this.CELL_COLUMNS;
+        this.#cellHeight = (this.#HEIGHT_RATIO * p5.height) / this.CELL_ROWS;
 
         let cellSizeMultiplier: number = Random.randomFloat(0.5, 1.5);
 
-        for (let i: number = 0; i < this.#CELL_ROWS; i++) {
+        for (let i: number = 0; i < this.CELL_ROWS; i++) {
             const row: Cell[] = [];
 
-            for (let j: number = 0; j < this.#CELL_COLUMNS; j++) {
-
+            for (let j: number = 0; j < this.CELL_COLUMNS; j++) {
                 if (config.cellSizeSelection === GraphCellSizeSelection.RANDOM) {
                     cellSizeMultiplier = Random.randomFloat(0.5, 1.5);
                 }
@@ -151,21 +150,21 @@ export class SquareGraph implements CanvasRedrawListener {
         }
 
         if (config.fillMode === GraphFillMode.RANDOM) {
-            interface Pair{
-                row: number, col: number
+            interface Pair {
+                row: number; col: number;
             }
 
-            let pairs: Pair[] = [];
+            const pairs: Pair[] = [];
 
-            for (let i: number = 0; i < this.#CELL_ROWS; i++) {
-                for (let j: number = 0; j < this.#CELL_COLUMNS; j++) {
+            for (let i: number = 0; i < this.CELL_ROWS; i++) {
+                for (let j: number = 0; j < this.CELL_COLUMNS; j++) {
                     pairs.push({ row: i, col: j });
                 }
             }
 
             for (let i: number = 0; i < this.#DAYS; i++) {
-                const selector: RandomSelector<Pair> = new RandomSelector(pairs);
-                let pair: Pair | undefined = selector.getRandomElementAndRemove();
+                const selector: RandomSelector<Pair> = new RandomSelector<Pair>(pairs);
+                const pair: Pair | undefined = selector.getRandomElementAndRemove();
 
                 if (pair) {
                     this.#CELLS[pair.row][pair.col].activate();
@@ -173,11 +172,19 @@ export class SquareGraph implements CanvasRedrawListener {
             }
         } else {
             for (let i: number = 0; i < this.#DAYS; i++) {
-                const row: number = Math.floor(i / this.#CELL_COLUMNS);
-                const column: number = i % this.#CELL_COLUMNS;
+                const row: number = Math.floor(i / this.CELL_COLUMNS);
+                const column: number = i % this.CELL_COLUMNS;
                 this.#CELLS[row][column].activate();
             }
         }
+    }
+
+    get CELL_ROWS(): number {
+        return 20;
+    }
+
+    get CELL_COLUMNS(): number {
+        return 19;
     }
 
     public draw(): void {
@@ -200,7 +207,7 @@ export class SquareGraph implements CanvasRedrawListener {
     public canvasRedraw(): void {
         const p5: P5Lib = P5Context.p5;
         this.#CENTER.remap();
-        this.#cellWidth = (this.#WIDTH_RATIO *  p5.width)/ this.#CELL_COLUMNS;
-        this.#cellHeight = (this.#HEIGHT_RATIO * p5.height) / this.#CELL_ROWS;
+        this.#cellWidth = (this.#WIDTH_RATIO * p5.width) / this.CELL_COLUMNS;
+        this.#cellHeight = (this.#HEIGHT_RATIO * p5.height) / this.CELL_ROWS;
     }
 }

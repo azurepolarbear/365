@@ -40,7 +40,7 @@ export interface TextDisplayConfig {
 export class TextDisplay implements CanvasRedrawListener {
     readonly #TEXT: string;
     readonly #COORDINATE: Coordinate;
-    readonly  #X_ALIGN: P5Lib.HORIZ_ALIGN;
+    readonly #X_ALIGN: P5Lib.HORIZ_ALIGN;
     readonly #Y_ALIGN: P5Lib.VERT_ALIGN;
     readonly #TEXT_SIZE_MULTIPLIER: number;
     readonly #MAX_WIDTH_RATIO: number;

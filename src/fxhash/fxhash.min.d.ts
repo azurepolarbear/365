@@ -21,7 +21,7 @@
  * for full license details.
  */
 
-import { FxHashApi } from "@fxhash/project-sdk";
+import { FxHashApi } from '@fxhash/project-sdk';
 
 interface Window {
     $fx: FxHashApi;

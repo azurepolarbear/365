@@ -21,7 +21,7 @@
  * for full license details.
  */
 
-import { ALL_PALETTE_COLORS, Discriminators, PaletteColor } from "@batpb/genart";
+import { ALL_PALETTE_COLORS, Discriminators, PaletteColor } from '@batpb/genart';
 
 const PC_CAD3C5: PaletteColor = {
     HEX: '#CAD3C5',
@@ -29,7 +29,7 @@ const PC_CAD3C5: PaletteColor = {
     HSL: { H: 99, S: 14, L: 80 },
     NAME: 'parakeet pete',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_84A98C: PaletteColor = {
     HEX: '#84A98C',
@@ -37,7 +37,7 @@ const PC_84A98C: PaletteColor = {
     HSL: { H: 133, S: 18, L: 59 },
     NAME: 'mossy bench',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_537970: PaletteColor = {
     HEX: '#537970',
@@ -45,7 +45,7 @@ const PC_537970: PaletteColor = {
     HSL: { H: 166, S: 19, L: 40 },
     NAME: 'dull turquoise',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_344D50: PaletteColor = {
     HEX: '#344D50',
@@ -53,7 +53,7 @@ const PC_344D50: PaletteColor = {
     HSL: { H: 186, S: 21, L: 26 },
     NAME: 'galenite blue',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_2F3E46: PaletteColor = {
     HEX: '#2F3E46',
@@ -61,7 +61,7 @@ const PC_2F3E46: PaletteColor = {
     HSL: { H: 201, S: 20, L: 23 },
     NAME: 'sea deep',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_6A907F: PaletteColor = {
     HEX: '#6A907F',
@@ -69,7 +69,7 @@ const PC_6A907F: PaletteColor = {
     HSL: { H: 153, S: 15, L: 49 },
     NAME: 'grandview',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_A2C3B1: PaletteColor = {
     HEX: '#A2C3B1',
@@ -77,7 +77,7 @@ const PC_A2C3B1: PaletteColor = {
     HSL: { H: 147, S: 22, L: 70 },
     NAME: 'green silk',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_CEE4DF: PaletteColor = {
     HEX: '#CEE4DF',
@@ -85,7 +85,7 @@ const PC_CEE4DF: PaletteColor = {
     HSL: { H: 166, S: 29, L: 85 },
     NAME: 'ice dagger',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_EBF4F4: PaletteColor = {
     HEX: '#EBF4F4',
@@ -93,7 +93,7 @@ const PC_EBF4F4: PaletteColor = {
     HSL: { H: 180, S: 29, L: 94 },
     NAME: 'powder white',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_F5FFF7: PaletteColor = {
     HEX: '#F5FFF7',
@@ -101,7 +101,7 @@ const PC_F5FFF7: PaletteColor = {
     HSL: { H: 132, S: 100, L: 98 },
     NAME: 'mint cream',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_1C101E: PaletteColor = {
     HEX: '#1C101E',
@@ -109,7 +109,7 @@ const PC_1C101E: PaletteColor = {
     HSL: { H: 291, S: 30, L: 9 },
     NAME: 'meški black',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_3F0D2A: PaletteColor = {
     HEX: '#3F0D2A',
@@ -117,7 +117,7 @@ const PC_3F0D2A: PaletteColor = {
     HSL: { H: 325, S: 66, L: 15 },
     NAME: 'what we do in the shadows',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_610A34: PaletteColor = {
     HEX: '#610A34',
@@ -125,7 +125,7 @@ const PC_610A34: PaletteColor = {
     HSL: { H: 331, S: 81, L: 21 },
     NAME: 'mulberry wood',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_930643: PaletteColor = {
     HEX: '#930643',
@@ -133,7 +133,7 @@ const PC_930643: PaletteColor = {
     HSL: { H: 334, S: 92, L: 30 },
     NAME: 'rose garnet',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_E8025E: PaletteColor = {
     HEX: '#E8025E',
@@ -141,7 +141,7 @@ const PC_E8025E: PaletteColor = {
     HSL: { H: 336, S: 98, L: 46 },
     NAME: 'framboise',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_9994D6: PaletteColor = {
     HEX: '#9994D6',
@@ -149,7 +149,7 @@ const PC_9994D6: PaletteColor = {
     HSL: { H: 245, S: 45, L: 71 },
     NAME: 'bluebell frost',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_9FADE0: PaletteColor = {
     HEX: '#9FADE0',
@@ -157,7 +157,7 @@ const PC_9FADE0: PaletteColor = {
     HSL: { H: 227, S: 51, L: 75 },
     NAME: 'myrtle flower',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_AEC4EA: PaletteColor = {
     HEX: '#AEC4EA',
@@ -165,7 +165,7 @@ const PC_AEC4EA: PaletteColor = {
     HSL: { H: 218, S: 59, L: 80 },
     NAME: 'promise keeping',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_B9DAEE: PaletteColor = {
     HEX: '#B9DAEE',
@@ -173,7 +173,7 @@ const PC_B9DAEE: PaletteColor = {
     HSL: { H: 203, S: 61, L: 83 },
     NAME: 'sleepless blue',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_C7ECF0: PaletteColor = {
     HEX: '#C7ECF0',
@@ -181,7 +181,7 @@ const PC_C7ECF0: PaletteColor = {
     HSL: { H: 186, S: 58, L: 86 },
     NAME: 'icy breeze',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_8CC2E3: PaletteColor = {
     HEX: '#8CC2E3',
@@ -189,7 +189,7 @@ const PC_8CC2E3: PaletteColor = {
     HSL: { H: 203, S: 61, L: 72 },
     NAME: 'club cruise',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_61879E: PaletteColor = {
     HEX: '#61879E',
@@ -197,7 +197,7 @@ const PC_61879E: PaletteColor = {
     HSL: { H: 203, S: 24, L: 50 },
     NAME: 'seal pup',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_B7BEE1: PaletteColor = {
     HEX: '#B7BEE1',
@@ -205,7 +205,7 @@ const PC_B7BEE1: PaletteColor = {
     HSL: { H: 230, S: 41, L: 80 },
     NAME: 'wish',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_DEDEDE: PaletteColor = {
     HEX: '#DEDEDE',
@@ -213,7 +213,7 @@ const PC_DEDEDE: PaletteColor = {
     HSL: { H: 0, S: 0, L: 87 },
     NAME: 'kingly cloud',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_FF5C5C: PaletteColor = {
     HEX: '#FF5C5C',
@@ -221,7 +221,7 @@ const PC_FF5C5C: PaletteColor = {
     HSL: { H: 0, S: 100, L: 68 },
     NAME: 'grapefruit',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_FFA852: PaletteColor = {
     HEX: '#FFA852',
@@ -229,7 +229,7 @@ const PC_FFA852: PaletteColor = {
     HSL: { H: 30, S: 100, L: 66 },
     NAME: 'pumpkin vapour',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_FFCE5C: PaletteColor = {
     HEX: '#FFCE5C',
@@ -237,7 +237,7 @@ const PC_FFCE5C: PaletteColor = {
     HSL: { H: 42, S: 100, L: 68 },
     NAME: 'casandora yellow',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_B8E77E: PaletteColor = {
     HEX: '#B8E77E',
@@ -245,7 +245,7 @@ const PC_B8E77E: PaletteColor = {
     HSL: { H: 87, S: 69, L: 70 },
     NAME: 'green day',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_63C57F: PaletteColor = {
     HEX: '#63C57F',
@@ -253,7 +253,7 @@ const PC_63C57F: PaletteColor = {
     HSL: { H: 137, S: 46, L: 58 },
     NAME: 'spring bouquet',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_454545: PaletteColor = {
     HEX: '#454545',
@@ -261,7 +261,7 @@ const PC_454545: PaletteColor = {
     HSL: { H: 0, S: 0, L: 27 },
     NAME: 'machine gun metal',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_FFFAFB: PaletteColor = {
     HEX: '#FFFAFB',
@@ -269,7 +269,7 @@ const PC_FFFAFB: PaletteColor = {
     HSL: { H: 348, S: 100, L: 99 },
     NAME: 'snow',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_AC206B: PaletteColor = {
     HEX: '#AC206B',
@@ -277,7 +277,7 @@ const PC_AC206B: PaletteColor = {
     HSL: { H: 328, S: 69, L: 40 },
     NAME: 'plastic lips',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_3D91E6: PaletteColor = {
     HEX: '#3D91E6',
@@ -285,7 +285,7 @@ const PC_3D91E6: PaletteColor = {
     HSL: { H: 210, S: 77, L: 57 },
     NAME: 'oregon blue',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_73B441: PaletteColor = {
     HEX: '#73B441',
@@ -293,7 +293,7 @@ const PC_73B441: PaletteColor = {
     HSL: { H: 94, S: 47, L: 48 },
     NAME: 'nasty green',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_D37A22: PaletteColor = {
     HEX: '#D37A22',
@@ -301,7 +301,7 @@ const PC_D37A22: PaletteColor = {
     HSL: { H: 30, S: 72, L: 48 },
     NAME: 'ochre',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_5E5E5E: PaletteColor = {
     HEX: '#5E5E5E',
@@ -309,7 +309,7 @@ const PC_5E5E5E: PaletteColor = {
     HSL: { H: 0, S: 0, L: 37 },
     NAME: 'iron',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_787878: PaletteColor = {
     HEX: '#787878',
@@ -317,7 +317,7 @@ const PC_787878: PaletteColor = {
     HSL: { H: 0, S: 0, L: 47 },
     NAME: 'westchester grey',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_FF00AA: PaletteColor = {
     HEX: '#FF00AA',
@@ -325,7 +325,7 @@ const PC_FF00AA: PaletteColor = {
     HSL: { H: 320, S: 100, L: 50 },
     NAME: 'ms. pac-man kiss',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_7F00FF: PaletteColor = {
     HEX: '#7F00FF',
@@ -333,7 +333,7 @@ const PC_7F00FF: PaletteColor = {
     HSL: { H: 270, S: 100, L: 50 },
     NAME: 'violent violet',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_EEFF05: PaletteColor = {
     HEX: '#EEFF05',
@@ -341,7 +341,7 @@ const PC_EEFF05: PaletteColor = {
     HSL: { H: 64, S: 100, L: 51 },
     NAME: 'sour yellow',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_A5FF0A: PaletteColor = {
     HEX: '#A5FF0A',
@@ -349,7 +349,7 @@ const PC_A5FF0A: PaletteColor = {
     HSL: { H: 82, S: 100, L: 52 },
     NAME: 'wolf lichen',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_00DDFF: PaletteColor = {
     HEX: '#00DDFF',
@@ -357,7 +357,7 @@ const PC_00DDFF: PaletteColor = {
     HSL: { H: 188, S: 100, L: 50 },
     NAME: 'neon blue',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_FF704D: PaletteColor = {
     HEX: '#FF704D',
@@ -365,7 +365,7 @@ const PC_FF704D: PaletteColor = {
     HSL: { H: 12, S: 100, L: 65 },
     NAME: 'often orange',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_E13762: PaletteColor = {
     HEX: '#E13762',
@@ -373,7 +373,7 @@ const PC_E13762: PaletteColor = {
     HSL: { H: 345, S: 74, L: 55 },
     NAME: 'intense passion',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_9F1475: PaletteColor = {
     HEX: '#9F1475',
@@ -381,7 +381,7 @@ const PC_9F1475: PaletteColor = {
     HSL: { H: 318, S: 78, L: 35 },
     NAME: 'haunted purple',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_1E1A75: PaletteColor = {
     HEX: '#1E1A75',
@@ -389,7 +389,7 @@ const PC_1E1A75: PaletteColor = {
     HSL: { H: 243, S: 64, L: 28 },
     NAME: '20,000 leagues under the sea',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_D7E3EA: PaletteColor = {
     HEX: '#D7E3EA',
@@ -397,7 +397,7 @@ const PC_D7E3EA: PaletteColor = {
     HSL: { H: 202, S: 31, L: 88 },
     NAME: 'white sea',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_CCB3DB: PaletteColor = {
     HEX: '#CCB3DB',
@@ -405,7 +405,7 @@ const PC_CCB3DB: PaletteColor = {
     HSL: { H: 278, S: 36, L: 78 },
     NAME: 'sea lavender',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_FFC7DB: PaletteColor = {
     HEX: '#FFC7DB',
@@ -413,7 +413,7 @@ const PC_FFC7DB: PaletteColor = {
     HSL: { H: 339, S: 100, L: 89 },
     NAME: 'blossom tree',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_FFADCB: PaletteColor = {
     HEX: '#FFADCB',
@@ -421,7 +421,7 @@ const PC_FFADCB: PaletteColor = {
     HSL: { H: 338, S: 100, L: 84 },
     NAME: 'heartfelt',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_BEE0FE: PaletteColor = {
     HEX: '#BEE0FE',
@@ -429,7 +429,7 @@ const PC_BEE0FE: PaletteColor = {
     HSL: { H: 208, S: 97, L: 87 },
     NAME: 'dithered sky',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_A3D3FF: PaletteColor = {
     HEX: '#A3D3FF',
@@ -437,7 +437,7 @@ const PC_A3D3FF: PaletteColor = {
     HSL: { H: 209, S: 100, L: 82 },
     NAME: 'baby blue',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_95DFCA: PaletteColor = {
     HEX: '#95DFCA',
@@ -445,7 +445,7 @@ const PC_95DFCA: PaletteColor = {
     HSL: { H: 163, S: 54, L: 73 },
     NAME: 'beach glass',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_445F54: PaletteColor = {
     HEX: '#445F54',
@@ -453,7 +453,7 @@ const PC_445F54: PaletteColor = {
     HSL: { H: 156, S: 17, L: 32 },
     NAME: 'mission jewel',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_100909: PaletteColor = {
     HEX: '#100909',
@@ -461,7 +461,7 @@ const PC_100909: PaletteColor = {
     HSL: { H: 0, S: 28, L: 5 },
     NAME: 'chyornyi black',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_220716: PaletteColor = {
     HEX: '#220716',
@@ -469,7 +469,7 @@ const PC_220716: PaletteColor = {
     HSL: { H: 327, S: 66, L: 8 },
     NAME: 'belladonna',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_280606: PaletteColor = {
     HEX: '#280606',
@@ -477,7 +477,7 @@ const PC_280606: PaletteColor = {
     HSL: { H: 0, S: 74, L: 9 },
     NAME: 'sepia black',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_F0DBBC: PaletteColor = {
     HEX: '#F0DBBC',
@@ -485,7 +485,7 @@ const PC_F0DBBC: PaletteColor = {
     HSL: { H: 36, S: 63, L: 84 },
     NAME: 'light incense',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_DDC1A6: PaletteColor = {
     HEX: '#DDC1A6',
@@ -493,7 +493,7 @@ const PC_DDC1A6: PaletteColor = {
     HSL: { H: 29, S: 45, L: 76 },
     NAME: 'candle light',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_BDA17F: PaletteColor = {
     HEX: '#BDA17F',
@@ -501,7 +501,7 @@ const PC_BDA17F: PaletteColor = {
     HSL: { H: 33, S: 32, L: 62 },
     NAME: 'oxford street',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_A07F5A: PaletteColor = {
     HEX: '#A07F5A',
@@ -509,7 +509,7 @@ const PC_A07F5A: PaletteColor = {
     HSL: { H: 32, S: 28, L: 49 },
     NAME: 'agrellan earth',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_826955: PaletteColor = {
     HEX: '#826955',
@@ -517,7 +517,7 @@ const PC_826955: PaletteColor = {
     HSL: { H: 27, S: 21, L: 42 },
     NAME: 'pastel brown',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_542B03: PaletteColor = {
     HEX: '#542B03',
@@ -525,7 +525,7 @@ const PC_542B03: PaletteColor = {
     HSL: { H: 30, S: 93, L: 17 },
     NAME: 'kyoto house',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_AB783B: PaletteColor = {
     HEX: '#AB783B',
@@ -533,7 +533,7 @@ const PC_AB783B: PaletteColor = {
     HSL: { H: 33, S: 49, L: 45 },
     NAME: 'durian',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_412206: PaletteColor = {
     HEX: '#412206',
@@ -541,7 +541,7 @@ const PC_412206: PaletteColor = {
     HSL: { H: 28, S: 83, L: 14 },
     NAME: 'chocolate castle',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_FBECA7: PaletteColor = {
     HEX: '#FBECA7',
@@ -549,7 +549,7 @@ const PC_FBECA7: PaletteColor = {
     HSL: { H: 49, S: 91, L: 82 },
     NAME: 'bleached sunflower',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const PC_77420D: PaletteColor = {
     HEX: '#77420D',
@@ -557,7 +557,7 @@ const PC_77420D: PaletteColor = {
     HSL: { H: 30, S: 80, L: 26 },
     NAME: 'ancient planks',
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
-}
+};
 
 const colors: PaletteColor[] = [
     PC_CAD3C5,
@@ -627,7 +627,7 @@ const colors: PaletteColor[] = [
     PC_412206,
     PC_FBECA7,
     PC_77420D
-]
+];
 
 export function addNewPaletteColors(): void {
     for (const color of colors) {
