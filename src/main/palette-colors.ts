@@ -479,6 +479,86 @@ const PC_280606: PaletteColor = {
     DISCRIMINATOR: Discriminators.PALETTE_COLOR
 }
 
+const PC_F0DBBC: PaletteColor = {
+    HEX: '#F0DBBC',
+    RGB: { R: 240, G: 219, B: 188 },
+    HSL: { H: 36, S: 63, L: 84 },
+    NAME: 'light incense',
+    DISCRIMINATOR: Discriminators.PALETTE_COLOR
+}
+
+const PC_DDC1A6: PaletteColor = {
+    HEX: '#DDC1A6',
+    RGB: { R: 221, G: 193, B: 166 },
+    HSL: { H: 29, S: 45, L: 76 },
+    NAME: 'candle light',
+    DISCRIMINATOR: Discriminators.PALETTE_COLOR
+}
+
+const PC_BDA17F: PaletteColor = {
+    HEX: '#BDA17F',
+    RGB: { R: 189, G: 161, B: 127 },
+    HSL: { H: 33, S: 32, L: 62 },
+    NAME: 'oxford street',
+    DISCRIMINATOR: Discriminators.PALETTE_COLOR
+}
+
+const PC_A07F5A: PaletteColor = {
+    HEX: '#A07F5A',
+    RGB: { R: 160, G: 127, B: 90 },
+    HSL: { H: 32, S: 28, L: 49 },
+    NAME: 'agrellan earth',
+    DISCRIMINATOR: Discriminators.PALETTE_COLOR
+}
+
+const PC_826955: PaletteColor = {
+    HEX: '#826955',
+    RGB: { R: 130, G: 105, B: 85 },
+    HSL: { H: 27, S: 21, L: 42 },
+    NAME: 'pastel brown',
+    DISCRIMINATOR: Discriminators.PALETTE_COLOR
+}
+
+const PC_542B03: PaletteColor = {
+    HEX: '#542B03',
+    RGB: { R: 84, G: 43, B: 3 },
+    HSL: { H: 30, S: 93, L: 17 },
+    NAME: 'kyoto house',
+    DISCRIMINATOR: Discriminators.PALETTE_COLOR
+}
+
+const PC_AB783B: PaletteColor = {
+    HEX: '#AB783B',
+    RGB: { R: 171, G: 120, B: 59 },
+    HSL: { H: 33, S: 49, L: 45 },
+    NAME: 'durian',
+    DISCRIMINATOR: Discriminators.PALETTE_COLOR
+}
+
+const PC_412206: PaletteColor = {
+    HEX: '#412206',
+    RGB: { R: 65, G: 34, B: 6 },
+    HSL: { H: 28, S: 83, L: 14 },
+    NAME: 'chocolate castle',
+    DISCRIMINATOR: Discriminators.PALETTE_COLOR
+}
+
+const PC_FBECA7: PaletteColor = {
+    HEX: '#FBECA7',
+    RGB: { R: 251, G: 236, B: 167 },
+    HSL: { H: 49, S: 91, L: 82 },
+    NAME: 'bleached sunflower',
+    DISCRIMINATOR: Discriminators.PALETTE_COLOR
+}
+
+const PC_77420D: PaletteColor = {
+    HEX: '#77420D',
+    RGB: { R: 119, G: 66, B: 13 },
+    HSL: { H: 30, S: 80, L: 26 },
+    NAME: 'ancient planks',
+    DISCRIMINATOR: Discriminators.PALETTE_COLOR
+}
+
 const colors: PaletteColor[] = [
     PC_CAD3C5,
     PC_84A98C,
@@ -536,7 +616,17 @@ const colors: PaletteColor[] = [
     PC_445F54,
     PC_100909,
     PC_220716,
-    PC_280606
+    PC_280606,
+    PC_F0DBBC,
+    PC_DDC1A6,
+    PC_BDA17F,
+    PC_A07F5A,
+    PC_826955,
+    PC_542B03,
+    PC_AB783B,
+    PC_412206,
+    PC_FBECA7,
+    PC_77420D
 ]
 
 export function addNewPaletteColors(): void {
