@@ -7,6 +7,8 @@ Copyright (C) 2024 brittni and the polar bear LLC.
 This project uses the brittni and the polar bear generative art
 library: [@batpb/genart](https://www.npmjs.com/package/@batpb/genart).
 
+## [365 is available to mint on fx(hash)!](https://www.fxhash.xyz/generative/31472)
+
 ----
 
 # project stats
