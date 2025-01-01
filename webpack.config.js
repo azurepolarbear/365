@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2024 brittni and the polar bear LLC.
  *
- * This file is a part of brittni and the polar bear's @batpb/genart project template,
+ * This file is a part of azurepolarbear's 365 algorithmic art project,
  * which is released under the GNU Affero General Public License, Version 3.0.
  * You may not use this file except in compliance with the license.
  *
@@ -25,18 +25,24 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackInjector = require('html-webpack-injector');
 
 module.exports = {
     entry: {
-        sketch: {
-            import: './src/main/sketch.ts',
-            dependOn: ['p5', 'genart']
+        fxhash_head: {
+            import: './src/fxhash/fxhash.min.js',
+            filename: 'fxhash.min.js'
         },
+        p5: 'p5',
         genart: {
             import: '@batpb/genart',
             dependOn: ['p5']
         },
-        p5: 'p5'
+        sketch: {
+            import: './src/main/sketch.ts',
+            filename: 'index.js',
+            dependOn: ['p5', 'genart']
+        }
     },
     devtool: 'inline-source-map',
     module: {
@@ -61,14 +67,15 @@ module.exports = {
             inject: 'body',
             favicon: './assets/icon/favicon.ico'
         }),
-        new MiniCssExtractPlugin()
+        new MiniCssExtractPlugin(),
+        new HtmlWebpackInjector()
     ],
     optimization: {
         // concatenateModules: true,
         emitOnErrors: false,
         // mangleExports: true,
         // mergeDuplicateChunks: true,
-        // minimize: true,
+        minimize: true,
         // providedExports: true,
         // removeAvailableModules: true,
         // removeEmptyChunks: true,
@@ -79,9 +86,9 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'out/dist'),
-        filename: '[name].[fullhash:8].js',
-        sourceMapFilename: '[name].[fullhash:8].map',
-        chunkFilename: '[name].[fullhash:8].js',
+        filename: '[name].js',
+        sourceMapFilename: '[name].map',
+        chunkFilename: '[name].js',
         clean: true
     },
     devServer: {
