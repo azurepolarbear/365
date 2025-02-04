@@ -40,7 +40,7 @@
     "@batpb/genart": "^2.0.0-rc2",
     "@fxhash/params": "^0.0.10",
     "@fxhash/project-sdk": "^0.0.13",
-    "p5": "^1.11.2"
+    "p5": "^1.11.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.18.0",
